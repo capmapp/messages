@@ -1,0 +1,37 @@
+{
+    "name": "mensajes-para-papa",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "concurrently -k -n api,web \"npm:dev:api\" \"npm:dev:web\"",
+        "dev:api": "tsx watch src/server/index.ts",
+        "dev:web": "vite --host 127.0.0.1",
+        "build": "tsc --noEmit && tsc -p tsconfig.server.json && vite build",
+        "start": "node dist/server/server/index.js",
+        "test": "tsx --test src/server/app.test.ts"
+    },
+    "dependencies": {
+        "express": "^5.1.0",
+        "lucide-react": "^0.468.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "zod": "^4.0.0"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.0",
+        "@types/node": "^22.0.0",
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
+        "@types/supertest": "^6.0.0",
+        "@vitejs/plugin-react": "^4.5.0",
+        "concurrently": "^9.0.0",
+        "supertest": "^7.0.0",
+        "tsx": "^4.0.0",
+        "typescript": "latest",
+        "vite": "^6.0.0"
+    },
+    "engines": {
+        "node": ">=22.17.0"
+    }
+}
